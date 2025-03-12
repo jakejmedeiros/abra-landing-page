@@ -27,7 +27,7 @@ function GettingStarted() {
               <h3 className="roboto-mono-semibold">Annotate Your Functions</h3>
             </div>
             <div className="code-block">
-              <code>// @abra-action Your function description<br />export function yourFunction() &#123;&#125;</code>
+            <code>{'// @abra-action Your function description'}<br />export function yourFunction() &#123;&#125;</code>
             </div>
           </div>
           
