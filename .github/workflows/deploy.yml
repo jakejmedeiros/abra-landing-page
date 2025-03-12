@@ -27,3 +27,4 @@ jobs:
         with:
           folder: build # or dist, public, etc. (whatever your build outputs to)
           branch: gh-pages
+          cname: abra-dev.com
