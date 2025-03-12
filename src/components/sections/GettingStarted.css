@@ -1,0 +1,100 @@
+.getting-started {
+    padding: 5.5rem 0;
+    background-color: var(--dark);
+    position: relative;
+  }
+  
+  .installation-steps {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .step-container {
+    margin-bottom: 2.5rem;
+    background-color: var(--surface);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .step-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: rgba(var(--primary-rgb), 0.1);
+  }
+  
+  .step-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary);
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .step-header h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--light);
+  }
+  
+  .code-block {
+    background-color: var(--darker);
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .code-block::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary), transparent);
+  }
+  
+  .code-block code {
+    font-family: 'Roboto Mono', monospace;
+    color: var(--text);
+    font-size: 0.9rem;
+    white-space: pre;
+    line-height: 1.5;
+  }
+  
+  .step-description {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid rgba(var(--primary-rgb), 0.3);
+  }
+  
+  .docs-link {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  
+  @media (max-width: 768px) {
+    .step-container {
+      padding: 1.5rem;
+    }
+  }

@@ -1,0 +1,225 @@
+/* Make components more compact */
+html {
+  font-size: 15px; /* Slightly smaller than the default 16px */
+}
+
+.container {
+  max-width: 1100px; /* Slightly more compact than the original 1200px */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+:root {
+  --primary: #25D366;
+  --primary-rgb: 37, 211, 102;
+  --primary-dark: #1CB058;
+  --dark: #121212;
+  --darker: #000000;
+  --light: #FFFFFF;
+  --text: #F0F0F0;
+  --text-muted: #999999;
+  --surface: #1A1A1A;
+  --accent: #25D366;
+}
+
+/* Typography */
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: var(--darker);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.roboto-mono-regular { 
+  font-family: 'Roboto Mono', monospace; 
+  font-optical-sizing: auto; 
+  font-weight: 400; 
+  font-style: normal; 
+}
+
+.roboto-mono-medium { 
+  font-family: 'Roboto Mono', monospace; 
+  font-optical-sizing: auto; 
+  font-weight: 500; 
+  font-style: normal; 
+}
+
+.roboto-mono-semibold { 
+  font-family: 'Roboto Mono', monospace; 
+  font-optical-sizing: auto; 
+  font-weight: 600; 
+  font-style: normal; 
+}
+
+.roboto-mono-bold { 
+  font-family: 'Roboto Mono', monospace; 
+  font-optical-sizing: auto; 
+  font-weight: 700; 
+  font-style: normal; 
+}
+
+.roboto-mono-light { 
+  font-family: 'Roboto Mono', monospace; 
+  font-optical-sizing: auto; 
+  font-weight: 300; 
+  font-style: normal; 
+}
+
+.roboto-mono-light-italic { 
+  font-family: 'Roboto Mono', monospace; 
+  font-optical-sizing: auto; 
+  font-weight: 300; 
+  font-style: italic; 
+}
+
+/* Animation classes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animated {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--primary);
+  color: black;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+  font-size: 0.95rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(var(--primary-rgb), 0.2);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: black;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(var(--primary-rgb), 0.2);
+}
+
+/* User Interface Mock in Code Snippet */
+.user-interface-mock {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.chat-button {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  box-shadow: 0 4px 10px rgba(var(--primary-rgb), 0.3);
+  flex-shrink: 0;
+}
+
+.at-symbol {
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.input-expanded {
+  display: flex;
+  align-items: center;
+  background-color: var(--surface);
+  border-radius: 20px;
+  padding: 10px 15px;
+  flex: 1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.input-text {
+  flex: 1;
+  color: var(--text);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.send-button {
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  color: black;
+  cursor: pointer;
+}
+
+/* @bra Branding Style */
+.abra-logo, .logo span, .logo-text {
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
+}
+
+.abra-logo::after, .logo span::after, .logo-text::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.15em;
+  background-color: rgba(var(--primary-rgb), 0.2);
+  left: 0;
+  bottom: 0.1em;
+  z-index: -1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .input-group input, 
+  .input-group button {
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+  
+  .input-group input {
+    margin-bottom: 1rem;
+    border-right: 2px solid #e2e8f0;
+  }
+}

@@ -1,0 +1,90 @@
+.code-snippet {
+  margin: 3rem 0;
+  padding: 2.2rem;
+  border-radius: 0.8rem;
+  background-color: var(--darker);
+  color: var(--text);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--surface);
+}
+
+.code-snippet pre {
+  overflow-x: auto;
+  font-family: 'Roboto Mono', monospace;
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+  font-size: 0.85rem;
+  white-space: pre;
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.language-tag {
+  font-size: 0.8rem;
+  background-color: rgba(var(--primary-rgb), 0.15);
+  color: var(--primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+}
+
+.dot-red { background-color: #FF5470; }
+.dot-yellow { background-color: #FFBD2E; }
+.dot-green { background-color: var(--primary); }
+
+/* Apply syntax highlighting */
+.code-snippet .comment,
+.code-snippet .code-comment { 
+  color: #94A3B8; 
+}
+
+.code-snippet .keyword,
+.code-snippet .code-keyword { 
+  color: #FFFFFF; 
+}
+
+.code-snippet .function,
+.code-snippet .code-func { 
+  color: #FFFFFF; 
+}
+
+.code-snippet .string,
+.code-snippet .code-string { 
+  color: var(--primary); 
+}
+
+.code-snippet .variable,
+.code-snippet .code-var { 
+  color: #FFFFFF; 
+}
+
+/* Code section spacing */
+.code-section {
+  position: relative;
+  margin-bottom: 60px;
+}

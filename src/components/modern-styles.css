@@ -1,0 +1,327 @@
+/* Modern professional card styling */
+.modern-section {
+    padding: 7rem 0;
+    position: relative;
+  }
+  
+  .modern-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(var(--primary-rgb), 0.03) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .section-header {
+    margin-bottom: 5rem;
+    text-align: center;
+    position: relative;
+  }
+  
+  .section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--light);
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-header .section-subtitle {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+  }
+  
+  /* Modern cards */
+  .modern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .modern-card {
+    background: linear-gradient(145deg, var(--surface), rgba(26, 26, 26, 0.7));
+    border-radius: 12px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: rgba(var(--primary-rgb), 0.1);
+  }
+  
+  .modern-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modern-card:hover::after {
+    opacity: 1;
+  }
+  
+  .card-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 4rem;
+    font-weight: 800;
+    color: rgba(var(--primary-rgb), 0.07);
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1;
+  }
+  
+  .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    background-color: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .card-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .modern-card h3 {
+    font-size: 1.4rem;
+    color: var(--light);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .modern-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+  }
+  
+  /* Modern installation steps */
+  .installation-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .installation-step {
+    display: flex;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .installation-step:last-child {
+    margin-bottom: 0;
+  }
+  
+  .installation-step::before {
+    content: "";
+    position: absolute;
+    left: 25px;
+    top: 60px;
+    bottom: -60px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--primary), transparent);
+    z-index: 0;
+  }
+  
+  .installation-step:last-child::before {
+    display: none;
+  }
+  
+  .step-number-container {
+    position: relative;
+    margin-right: 2rem;
+    flex-shrink: 0;
+  }
+  
+  .step-number {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    font-family: 'Roboto Mono', monospace;
+    color: var(--primary);
+    background-color: rgba(var(--primary-rgb), 0.1);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .step-content {
+    flex: 1;
+    background: linear-gradient(145deg, var(--surface), rgba(26, 26, 26, 0.7));
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .installation-step:hover .step-content {
+    border-color: rgba(var(--primary-rgb), 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+  
+  .step-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: var(--light);
+    font-family: 'Roboto Mono', monospace;
+  }
+  
+  .modern-code-block {
+    background-color: #121212;
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .modern-code-block::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary), transparent);
+  }
+  
+  .modern-code-block code {
+    font-family: 'Roboto Mono', monospace;
+    color: var(--text);
+    font-size: 0.9rem;
+    white-space: pre;
+    line-height: 1.5;
+  }
+  
+  .docs-link {
+    text-align: center;
+    margin-top: 4rem;
+  }
+  
+  /* User interface styling */
+  .user-interface-mock {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    position: relative;
+  }
+  
+  .chat-button {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    box-shadow: 0 4px 10px rgba(var(--primary-rgb), 0.3);
+    flex-shrink: 0;
+  }
+  
+  .at-symbol {
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: 'Roboto Mono', monospace;
+  }
+  
+  .input-expanded {
+    display: flex;
+    align-items: center;
+    background-color: var(--surface);
+    border-radius: 20px;
+    padding: 10px 15px;
+    flex: 1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .input-text {
+    flex: 1;
+    color: var(--text);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+  }
+  
+  .send-button {
+    width: 24px;
+    height: 24px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    color: black;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .installation-step {
+      flex-direction: column;
+    }
+    
+    .step-number-container {
+      margin-bottom: 1rem;
+      margin-right: 0;
+    }
+    
+    .installation-step::before {
+      display: none;
+    }
+    
+    .modern-section {
+      padding: 5rem 0;
+    }
+  }
