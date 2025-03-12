@@ -11,7 +11,6 @@ function Header() {
           </div>
           <div className="nav-links">
             <a href="#how-it-works">How It Works</a>
-            <a href="#use-cases">Use Cases</a>
             <a href="#getting-started" className="waitlist-link">Get Started</a>
           </div>
         </nav>
