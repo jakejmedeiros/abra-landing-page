@@ -45,7 +45,6 @@
   margin-top: 2rem;
 }
 
-
   
   .installation-steps {
     max-width: 800px;
@@ -54,9 +53,12 @@
   
   
   .step-container:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    border-color: rgba(var(--primary-rgb), 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .step-container {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   
   
@@ -82,23 +84,35 @@
   }
   
   .code-block {
-    background-color: var(--darker);
+    background-color: #141414;
     border-radius: 8px;
     padding: 1.2rem;
     margin-bottom: 1rem;
     overflow-x: auto;
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
+  
+  .code-block code {
+    display: block;
+    font-family: 'Roboto Mono', monospace;
+    color: #E0E0E0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
   
   .code-block::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    height: 3px;
+    height: 2px;
     width: 100%;
-    background: linear-gradient(90deg, var(--primary), transparent);
+    background: linear-gradient(90deg, #23C15C, transparent);
   }
   
   .code-block code {

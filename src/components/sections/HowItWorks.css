@@ -7,23 +7,20 @@
 }
 
 .workflow-container {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0; /* Remove gap to control spacing with margins instead */
-  padding-left: 0;
-  margin: 2rem auto 0 auto;
+  margin: 2rem auto 0;
   position: relative;
-  max-width: 600px; /* Control maximum width */
+  max-width: 600px;
 }
 
 .workflow-step {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem; /* Increased horizontal gap between number and text */
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
   position: relative;
-  z-index: 1;
-  margin-bottom: 1.5rem; /* Consistent spacing between steps */
 }
 
 .workflow-step:last-child {
@@ -39,23 +36,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
-  color: var(--primary); /* Make numbers green */
+  color: var(--primary);
   font-weight: 600;
+  z-index: 2;
 }
 
-/* Connecting line styling */
+/* Connecting line between steps */
 .step-number::after {
   content: '';
   position: absolute;
   top: 100%;
   left: 50%;
   width: 2px;
-  height: 1.5rem; /* Height set to match spacing */
+  height: 1.5rem;
   background-color: var(--primary);
   transform: translateX(-50%);
 }
 
+/* Remove connecting line from last step */
 .workflow-step:last-child .step-number::after {
   display: none;
 }
@@ -69,7 +67,6 @@
   font-size: 2.5rem;
   margin-bottom: 1rem;
   color: var(--light);
-  font-family: 'Roboto Mono', monospace;
   font-weight: 700;
 }
 
@@ -78,48 +75,32 @@
   max-width: 600px;
   margin: 0 auto;
   font-size: 1.05rem;
-  font-family: 'Roboto Mono', monospace;
 }
 
 .step-info {
-  padding-top: 0.2rem; /* Slight padding to align with number */
-  flex: 1; /* Take remaining space */
+  flex: 1;
   text-align: left;
+  padding-top: 0.2rem;
 }
 
 .step-info h3 {
   font-size: 1.2rem;
   margin: 0;
   color: var(--light);
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 500; /* Slightly reduced weight to match screenshot */
+  font-weight: 500;
   line-height: 1.4;
 }
 
-.step-info p {
-  display: none;
-}
 
-/* For multi-line steps */
-.workflow-step:nth-child(3) .step-number::after,
-.workflow-step:nth-child(5) .step-number::after {
-  height: 2.5rem; /* Longer line for multi-line steps */
-}
-
+/* Mobile styling */
 @media (max-width: 768px) {
   .workflow-step {
-    margin-bottom: 1.75rem; /* Increased for better spacing on mobile */
+    margin-bottom: 1.75rem;
     gap: 1.2rem;
   }
   
   .step-number::after {
-    height: 1.75rem; /* Adjusted to match new spacing */
-  }
-  
-  /* Adjust for multi-line steps on mobile */
-  .workflow-step:nth-child(3) .step-number::after,
-  .workflow-step:nth-child(5) .step-number::after {
-    height: 3rem;
+    height: 1.75rem;
   }
   
   .section-header h2 {
@@ -132,20 +113,10 @@
   }
 }
 
-/* Adjust for very small screens */
+/* Small mobile screens */
 @media (max-width: 480px) {
   .workflow-step {
-    gap: 1rem; /* Slightly reduced gap */
+    gap: 1rem;
   }
   
-  /* For specific multi-line text on smaller screens */
-  .workflow-step:nth-child(3) .step-number::after,
-  .workflow-step:nth-child(5) .step-number::after {
-    height: 3.5rem;
-  }
-  
-  .workflow-step:nth-child(3),
-  .workflow-step:nth-child(5) {
-    margin-bottom: 2.5rem; /* Extra space for these specific steps */
-  }
 }

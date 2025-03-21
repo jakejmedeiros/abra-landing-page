@@ -1,4 +1,4 @@
-/* Modern professional card styling */
+
 .modern-section {
     padding: 7rem 0;
     position: relative;
@@ -41,7 +41,7 @@
     position: relative;
   }
   
-  /* Modern cards */
+  
   .modern-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -136,7 +136,7 @@
     flex-grow: 1;
   }
   
-  /* Modern installation steps */
+  
   .installation-container {
     max-width: 800px;
     margin: 0 auto;
@@ -249,7 +249,7 @@
     margin-top: 4rem;
   }
   
-  /* User interface styling */
+  
   .user-interface-mock {
     display: flex;
     align-items: center;

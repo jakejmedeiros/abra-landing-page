@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import './AbraAssistant.css';
 
 const AbraAssistant = () => {
   const [expanded, setExpanded] = useState(false);
   const [input, setInput] = useState('');
   const [currentExample, setCurrentExample] = useState(0);
-  const [typingIndex, setTypingIndex] = useState(0);
+  const [, setTypingIndex] = useState(0);
   const [showThinking, setShowThinking] = useState(false);
   const [thinkingStep, setThinkingStep] = useState(0);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -13,7 +13,7 @@ const AbraAssistant = () => {
   const textInputRef = useRef(null);
   const contentRef = useRef(null);
 
-  const examples = [
+  const examples = useMemo(() => [
     {
       query: "Find wireless headphones with noise cancellation under $200",
       thinking: [
@@ -47,20 +47,19 @@ const AbraAssistant = () => {
       ],
       success: "Support ticket #45823 created. A support representative will contact you within 24 hours."
     }
-  ];
+  ], []);
 
-  // Handle dynamic height adjustments
+  const examplesLength = useMemo(() => examples.length, [examples]);
+
   useEffect(() => {
     const adjustHeight = () => {
       if (contentRef.current && expanded) {
         const contentHeight = contentRef.current.scrollHeight;
         const maxHeight = window.innerHeight * 0.8;
-        const minHeight = 300; // Minimum height to prevent too small container
+        const minHeight = 300; 
         
-        // Ensure the container height is between min and max values
         contentRef.current.style.maxHeight = Math.max(minHeight, Math.min(contentHeight + 40, maxHeight)) + 'px';
         
-        // Ensure latest content is visible
         setTimeout(() => {
           if (contentRef.current) {
             contentRef.current.scrollTop = contentRef.current.scrollHeight;
@@ -71,7 +70,6 @@ const AbraAssistant = () => {
 
     adjustHeight();
     
-    // Adjust height whenever content changes
     const observer = new MutationObserver(adjustHeight);
     
     if (contentRef.current) {
@@ -81,8 +79,6 @@ const AbraAssistant = () => {
         characterData: true
       });
     }
-
-    // Also adjust on window resize
     window.addEventListener('resize', adjustHeight);
 
     return () => {
@@ -106,10 +102,8 @@ const AbraAssistant = () => {
     }
   }, [expanded]);
 
-  // Reset demo state when component is collapsed
   useEffect(() => {
     if (!expanded) {
-      // Only reset values, don't run animations when closed
       setCurrentExample(0);
       setTypingIndex(0);
       setThinkingStep(0);
@@ -117,19 +111,18 @@ const AbraAssistant = () => {
       setShowSuccess(false);
       setInput('');
     } else {
-      // When expanded, always restart the auto demo
       setIsAutoDemo(true);
     }
   }, [expanded]);
 
   useEffect(() => {
-    if (currentExample === examples.length - 1 && showSuccess) {
+    if (currentExample === examplesLength - 1 && showSuccess) {
       setTimeout(() => {
         setExpanded(false);
         setIsAutoDemo(false); 
       }, 3000);
     }
-  }, [currentExample, showSuccess]);
+  }, [currentExample, showSuccess, examplesLength]);
   
   useEffect(() => {
     let typingInterval;
@@ -151,19 +144,19 @@ const AbraAssistant = () => {
               return prev + 1;
             } else {
               clearInterval(typingInterval);
-              setTimeout(() => setShowThinking(true), 300); // Reduced from 500ms
+              setTimeout(() => setShowThinking(true), 300); 
               return prev;
             }
           });
-        }, 40); // Reduced from 75ms for faster typing
-      }, 500); // Reduced from 800ms
+        }, 40); 
+      }, 500);
     }
   
     return () => {
       clearTimeout(initialDelay);
       clearInterval(typingInterval);
     };
-  }, [expanded, currentExample, isAutoDemo]);
+  }, [expanded, currentExample, isAutoDemo, examples]);
   
   useEffect(() => {
     let stepInterval;
@@ -179,7 +172,7 @@ const AbraAssistant = () => {
             setTimeout(() => {
               setShowSuccess(true);
               setTimeout(() => {
-                if (currentExample < examples.length - 1) {
+                if (currentExample < examplesLength - 1) {
                   resetForNextExample();
                 } else {
                   setIsAutoDemo(false);
@@ -187,16 +180,16 @@ const AbraAssistant = () => {
                   setShowThinking(false);
                   setShowSuccess(false);
                 }
-              }, 2000); // Reduced from 3000ms
-            }, 700); // Reduced from 1000ms
+              }, 2000); 
+            }, 700);
             return prev;
           }
         });
-      }, 800); // Reduced from 1200ms
+      }, 800);
     }
   
     return () => clearInterval(stepInterval);
-  }, [showThinking, currentExample, isAutoDemo]);
+  }, [showThinking, currentExample, isAutoDemo, examples, examplesLength]);
   
   const resetForNextExample = () => {
     setCurrentExample(prev => prev + 1);
@@ -208,7 +201,7 @@ const AbraAssistant = () => {
 
     setTimeout(() => {
       setIsAutoDemo(true);
-    }, 500); // Reduced from 800ms
+    }, 500); 
   };
 
   const toggleExpanded = () => {
@@ -224,16 +217,13 @@ const AbraAssistant = () => {
     }
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!input.trim() || isAutoDemo) return;
     
-    // Process manual input
     setShowThinking(true);
     setThinkingStep(0);
     
-    // Simulate processing and display success
     setTimeout(() => {
       setShowSuccess(true);
       setTimeout(() => {
@@ -247,7 +237,6 @@ const AbraAssistant = () => {
     }, 3000);
   };
 
-  // If collapsed, only show the button
   if (!expanded) {
     return (
       <div className="abra-button-container">

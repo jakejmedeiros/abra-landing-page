@@ -8,13 +8,13 @@
     margin: 0 auto;
 }
 
-/* Added spacing between section title and FAQ items */
+
 .section-title {
     margin-bottom: 3rem;
     text-align: center;
 }
 
-/* Improved heading spacing */
+
 .section-title h2 {
     margin-bottom: 1rem;
     color: var(--light);
