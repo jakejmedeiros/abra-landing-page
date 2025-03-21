@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './layout/Header';
 import Hero from './sections/Hero';
-import CodeSnippet from './sections/CodeSnippet';
+import AbraAssistant from './AbraAssistant';
 import HowItWorks from './sections/HowItWorks';
 import GettingStarted from './sections/GettingStarted';
 import FAQ from './sections/FAQ';
@@ -13,8 +13,10 @@ function LandingPage() {
   return (
     <div className="landing-page">
       <Header />
-      <Hero />
-      <CodeSnippet />
+      <div className="hero-container">
+        <Hero />
+        <AbraAssistant />
+      </div>
       <HowItWorks />
       <GettingStarted />
       <FAQ />

@@ -14,29 +14,33 @@ function FAQ() {
 
   const faqs = [
     {
-      question: "How does abra extract TypeScript types?",
-      answer: "abra uses TypeScript's compiler API to analyze your code and extract type information from your annotated functions. It recursively traverses type definitions to build a complete representation of your function parameters."
+      question: "How does Abra understand what functions to make available to users?",
+      answer: "Abra uses TypeScript's compiler API to analyze your codebase and automatically extracts type information from functions annotated with @abra-action comments. This type extraction creates a structured representation of your application's capabilities without requiring you to manually define them."
     },
     {
-      question: "Do I need to use TypeScript to use abra?",
-      answer: "Yes, abra is designed specifically for TypeScript projects. The type extraction that makes abra powerful relies on TypeScript's type system."
+      question: "How secure is letting users interact with my application through natural language?",
+      answer: "Abra operates entirely within your application's existing security context and never bypasses your authentication or authorization systems. It can only execute functions you explicitly annotate with @abra-action, and those functions run with the same user permissions and security checks as if they were triggered through your UI. No new security vulnerabilities are introduced."
     },
     {
-      question: "Can abra call multiple functions in sequence?",
-      answer: "Yes, abra can determine when a user's request requires calling multiple functions and will execute them in the appropriate sequence to fulfill the request."
+      question: "Do I need to use TypeScript for my application to work with Abra?",
+      answer: "Yes, Abra is designed specifically for TypeScript projects. The type extraction that powers Abra's understanding relies on TypeScript's rich type system. This allows Abra to automatically understand parameter types, validate user inputs, and transform data appropriately without additional configuration."
     },
     {
-      question: "How do I control which functions are exposed to users?",
-      answer: "You have complete control by only adding the @abra-action annotation to functions you want to make available. You can also use the abra configuration to set additional access controls."
+      question: "How does Abra handle complex parameter types and nested objects?",
+      answer: "Abra recursively traverses your TypeScript type definitions to build a complete representation of even the most complex parameter structures. It can handle nested objects, arrays, unions, and custom types. The system automatically validates and transforms user inputs to match the expected types, even filling in reasonable defaults when information is missing."
     },
     {
-      question: "Does abra work with any LLM provider?",
-      answer: "By default, abra works with OpenAI's GPT models, but it's designed to be model-agnostic. You can configure it to work with other LLM providers by implementing the appropriate adapter."
+      question: "What happens when a user asks for something that doesn't map to an available function?",
+      answer: "Abra's LLM integration analyzes the user's intent and maps it to the most appropriate function. If no suitable function exists, Abra attempts to direct the user towards a set of known actions."
     },
     {
-      question: "How does abra handle user authentication and security?",
-      answer: "abra executes functions in your application's context, so all your existing authentication and security measures apply. It doesn't bypass any of your application's security controls."
-    }
+      question: "How do I control which application functions users can access through Abra?",
+      answer: "You have complete control by only adding the @abra-action annotation to functions you want to expose. Each annotated function can include a description that helps Abra understand when to use it. Your existing permission checks within these functions will continue to work, ensuring users can only perform actions they're authorized for."
+    },
+    {
+      question: "What kind of performance impact does adding Abra have on my application?",
+      answer: "Abra's type extraction process runs during your build phase and doesn't affect runtime performance. When processing user requests, the LLM analysis adds a brief delay (typically a few hundred milliseconds), but function execution performance is identical to your regular application code since Abra simply routes to your existing functions."
+    },
   ];
 
   return (
@@ -44,7 +48,7 @@ function FAQ() {
       <div className="container">
         <div className="section-title">
           <h2>Frequently Asked Questions</h2>
-          <p className="roboto-mono-light">Get answers to common questions about integrating and using abra.</p>
+          <p className="roboto-mono-light">Everything you need to know about integrating Abra into your TypeScript applications.</p>
         </div>
         
         <div className="faq-container">

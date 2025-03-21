@@ -1,0 +1,285 @@
+.abra-container {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
+  z-index: 100;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.15);
+  background-color: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh; /* Increased from 80vh for more space */
+  min-height: 400px; /* Ensure minimum height */
+}
+
+.abra-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(18, 18, 18, 0.95); /* Match container background */
+  z-index: 10; /* Ensure header stays on top */
+}
+
+.abra-title {
+  margin: 0;
+  color: #F0F0F0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.abra-close-button {
+  background: none;
+  border: none;
+  color: #999999;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.abra-content {
+  padding: 20px;
+  background-color: #1A1A1A;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  transition: max-height 0.3s ease; /* Smooth transition for height changes */
+  min-height: 300px; /* Ensures a minimum height */
+}
+
+.abra-message {
+  background-color: #1A1A1A;
+  padding: 16px 18px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  color: #E0E0E0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  word-wrap: break-word;
+}
+
+.abra-thinking-container {
+  background-color: transparent;
+  border-left: 2px solid #25D366;
+  margin: 15px 0;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.abra-thinking-step {
+  color: #ccc;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.abra-step-checkmark {
+  color: #25D366;
+  margin-right: 8px;
+}
+
+.abra-loader {
+  border: 2px solid #333;
+  border-top: 2px solid #25D366;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.abra-success-message {
+  background-color: rgba(37, 211, 102, 0.08);
+  border: 1px solid rgba(37, 211, 102, 0.2);
+  color: #25D366;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 15px 0 20px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  animation: pulse 1.5s ease;
+}
+
+.abra-suggestion-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.abra-suggestion-button {
+  background-color: rgba(37, 211, 102, 0.08);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  color: #25D366;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.abra-suggestion-button:hover {
+  background-color: rgba(37, 211, 102, 0.15);
+  transform: translateY(-2px);
+}
+
+.abra-input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: auto;
+  margin-bottom: 10px; /* Added to ensure it's not at the very bottom */
+}
+
+.abra-input {
+  flex: 1;
+  padding: 10px 15px;
+  padding-right: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background-color: rgba(26, 26, 26, 0.8);
+  color: #F0F0F0;
+  font-size: 0.9rem;
+  outline: none;
+  backdrop-filter: blur(10px);
+}
+
+.abra-send-button {
+  position: absolute;
+  right: 10px;
+  background: #25D366;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.abra-button-container {
+  text-align: center;
+  margin: 0 auto 2rem auto;
+  position: relative;
+}
+
+.abra-circle-button {
+  width: 65px;
+  height: 65px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35), 0 2px 8px rgba(37, 211, 102, 0.2);
+  border: none;
+  z-index: 100;
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.abra-at-symbol {
+  font-size: 1.8rem;
+  color: black;
+  font-weight: 600;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.15);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Hover effects */
+.abra-send-button:hover {
+  background-color: #1fbe59;
+}
+
+.abra-circle-button:hover {
+  transform: scale(1.05);
+}
+
+.abra-close-button:hover {
+  color: #ffffff;
+}
+
+/* Focus styles for accessibility */
+.abra-input:focus {
+  border-color: rgba(37, 211, 102, 0.5);
+}
+
+/* Animations for the component */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { background-color: rgba(37, 211, 102, 0.08); }
+  50% { background-color: rgba(37, 211, 102, 0.18); }
+  100% { background-color: rgba(37, 211, 102, 0.08); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.abra-container {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.abra-input[readonly] {
+  cursor: not-allowed;
+  opacity: 0.95;
+}
+
+.abra-send-button[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .abra-container {
+    max-width: calc(100% - 40px);
+    bottom: 80px;
+  }
+}
